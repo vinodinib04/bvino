@@ -35,7 +35,7 @@ def main():
         if user_question:
             docs=knowledge_base.similarity_search(user_question)
             docs_with_scores = knowledge_base.similarity_search_with_score(user_question, k=3)
-            if not docs_with_scores or docs_with_scores[0][1] > 0.2: 
+            if not docs_with_scores or docs_with_scores[0][1] > 2: 
                 st.warning("I couldn't find anything relevant to your question in the PDF.")
                 return
             model_name = "google/flan-t5-small"  # Free, lightweight LLM
